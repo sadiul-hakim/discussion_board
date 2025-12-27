@@ -18,12 +18,20 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="./index.php">Latest Questions</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./register.php">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./login.php">Login</a>
-                </li>
+                <?php
+                if (!$_SESSION['user']['email']) {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./login.php">Login</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Logout</a>
+                    </li>
+                <?php } ?>
             </ul>
         </div>
     </div>

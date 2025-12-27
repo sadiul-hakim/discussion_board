@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if ($_SESSION['user']['email']) {
+    header("Location: /discussion_board");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +25,11 @@
             <div class="col-12 col-md-6 mx-auto">
 
                 <?php
-                if (isset($_GET['registerSuccessful']) && $_GET['registerSuccessful'] == true) {
-                    echo "
-                        <div class='alert alert-success my-2 p-3 text-center'>
-                            You are successfully register. Please login.
-                        </div>
-                        ";
-                }
-                ?>
+                if (isset($_GET['error']) && $_GET['error'] == true) { ?>
+                    <div class='alert alert-danger my-2 p-3 text-center'>
+                        Something went wrong.
+                    </div>
+                <?php } ?>
                 <h2 class="text-primary lead text-center">Create an Account</h2>
                 <form class="shadow p-3" method="post" action="./src/server/register_user.php">
                     <div>
