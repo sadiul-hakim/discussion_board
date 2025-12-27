@@ -21,6 +21,14 @@
                         </div>
                         ";
                 }
+
+                if (isset($_GET['error']) && $_GET['error'] == true) {
+                    echo "
+                        <div class='alert alert-success my-2 p-3 text-center'>
+                            Login attempt failed, please try again!
+                        </div>
+                        ";
+                }
                 ?>
                 <h2 class="text-primary lead text-center">Login to Account</h2>
                 <form class="mx-auto shadow p-3">
@@ -32,7 +40,7 @@
                         <label for="password">Password</label><br />
                         <input type="password" name="password" id="password" class="form-control" required />
                     </div><br />
-                    <input type="submit" value="Login" class="btn btn-primary">
+                    <input type="submit" value="Login" name="login_user" class="btn btn-primary">
                     <br />
                     <p>Don't have an account yet? <a href="./register.php">Register Here</a></p>
                 </form>

@@ -17,7 +17,8 @@ class UserService
         $this->connection = DB::getConnection();
     }
 
-    public function registerUser(string $name, string $email, string $password): bool {
+    public function registerUser(string $name, string $email, string $password): bool
+    {
         $stmt = $this->connection->prepare(
             "INSERT INTO user(name,email,password,join_date) VALUES(:name,:email,:password,:join_date)"
         );
@@ -28,5 +29,15 @@ class UserService
             ':password' => $password,
             ':join_date' => $date
         ]);
+    }
+
+    public function findUser($email): array
+    {
+        $stmt = $this->connection->prepare(
+            "SELECT * from user where email = :email"
+        );
+
+        $stmt->execute([':email' => $email]);
+        return $stmt->fetch();
     }
 }
