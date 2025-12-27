@@ -19,7 +19,7 @@
                     <a class="nav-link active" aria-current="page" href="./index.php">Latest Questions</a>
                 </li>
                 <?php
-                if (!$_SESSION['user']['email']) {
+                if (!isset($_SESSION['user'])) {
                 ?>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./register.php">Register</a>
@@ -29,7 +29,7 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Logout</a>
+                        <a class="nav-link active" aria-current="page" href="./src/server/logout_user.php">Logout</a>
                     </li>
                 <?php } ?>
             </ul>

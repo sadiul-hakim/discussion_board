@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['user']['email']) {
+if (isset($_SESSION['user'])) {
     header("Location: /discussion_board");
     exit;
 }
