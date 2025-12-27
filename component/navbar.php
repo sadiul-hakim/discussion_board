@@ -29,6 +29,12 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./ask_question.php">Ask a Question</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./src/server/logout_user.php">Logout</a>
                     </li>
                 <?php } ?>
