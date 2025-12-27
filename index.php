@@ -7,6 +7,6 @@
     <?php require_once('./component/links.php');?>
 </head>
 <body>
-    
+    <?php require_once('./component/navbar.php');?>
 </body>
 </html>
