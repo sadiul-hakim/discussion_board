@@ -17,7 +17,7 @@ if (isset($_POST) && isset($_POST['login_user'])) {
     $user_service = new UserService();
     $user = $user_service->findUser($email);
     if ($user && $user['password'] === $password) {
-        $_SESSION['user'] = ['username' => $user['name'], 'email' => $user['email']];
+        $_SESSION['user'] = ['username' => $user['name'], 'email' => $user['email'], 'id' => $user['id']];
         header("Location: /discussion_board");
         exit;
     } else {

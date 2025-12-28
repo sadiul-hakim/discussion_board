@@ -39,6 +39,24 @@ class QuestionService
         return $stmt->fetchAll();
     }
 
+    public function findById(int $id): array
+    {
+        $stmt = $this->connection->prepare("SELECT * from question where id = :id");
+        $stmt->execute([
+            ':id' => $id
+        ]);
+        return $stmt->fetch();
+    }
+
+    public function deleteById(int $id): array
+    {
+        $stmt = $this->connection->prepare("delete from question where id = :id");
+        $stmt->execute([
+            ':id' => $id
+        ]);
+        return $stmt->fetch();
+    }
+
     public function findAllOrderByDate(): array
     {
         $stmt = $this->connection->prepare("SELECT * from question order by created_at desc");

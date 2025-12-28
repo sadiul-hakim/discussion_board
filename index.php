@@ -10,8 +10,19 @@
 
 <body>
     <?php
+    require __DIR__ . '/vendor/autoload.php';
     session_start();
-    require_once('./component/navbar.php'); ?>
+    use App\Database\QuestionService;
+    use App\Database\CategoryService;
+
+    $question_service = new QuestionService();
+    $category_service = new CategoryService();
+    
+    $questions = $question_service->findAllOrderByDate();
+    $categories = $category_service -> findAll();
+
+    require_once('./component/navbar.php');
+    ?>
     <div class="container">
         <?php
         if (isset($_GET['question_added']) && $_GET['question_added'] == true) { ?>
@@ -19,6 +30,33 @@
                 Your question is successfully added.
             </div>
         <?php } ?>
+
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <h1 class="text-center my-2">Latest Questions</h1>
+                <?php foreach ($questions as $question) { ?>
+
+                    <div class="shadow my-1 p-2">
+                        <a href="./question_details.php?qId=<?php echo $question['id'];?>" class="text-primary lead text-decoration-none">
+                            <?php echo $question['title']; ?>
+                        </a>
+                    </div>
+
+                <?php } ?>
+            </div>
+            <div class="col-12 col-md-4">
+                <h1 class="text-center my-2">Categories</h1>
+                <?php foreach ($categories as $category) { ?>
+
+                    <div class="shadow my-1 p-2">
+                        <a href="" class="text-primary lead text-decoration-none">
+                            <?php echo $category['title']; ?>
+                        </a>
+                    </div>
+
+                <?php } ?>
+            </div>
+        </div>
     </div>
 </body>
 
