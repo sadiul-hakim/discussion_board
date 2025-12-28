@@ -37,13 +37,20 @@ class OpinionService
         return $stmt->fetch();
     }
 
-    public function deleteById(int $id): array
+    public function deleteById(int $id): bool
     {
         $stmt = $this->connection->prepare("delete from opinion where id = :id");
-        $stmt->execute([
+        return $stmt->execute([
             ':id' => $id
         ]);
-        return $stmt->fetch();
+    }
+
+    public function deleteAllByQuestionId(int $question_id): bool
+    {
+        $stmt = $this->connection->prepare("delete from opinion where question_id = :question_id");
+        return $stmt->execute([
+            ':question_id' => $question_id
+        ]);
     }
 
     public function findAllByQuestion(int $question_id): array

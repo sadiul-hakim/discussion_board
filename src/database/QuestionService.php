@@ -48,13 +48,12 @@ class QuestionService
         return $stmt->fetch();
     }
 
-    public function deleteById(int $id): array
+    public function deleteById(int $id): bool
     {
         $stmt = $this->connection->prepare("delete from question where id = :id");
-        $stmt->execute([
+        return $stmt->execute([
             ':id' => $id
         ]);
-        return $stmt->fetch();
     }
 
     public function findAllOrderByDate(): array

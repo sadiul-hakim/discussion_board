@@ -25,6 +25,9 @@
                         <a class="nav-link active" aria-current="page" href="./ask_question.php">Ask a Question</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./my_questions.php">My Questions</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./src/server/logout_user.php">Logout</a>
                     </li>
                 <?php } ?>
