@@ -15,7 +15,7 @@ class OpinionService
         $this->connection = DB::getConnection();
     }
 
-    public function createOpinion(string $text, int $question_id, int $user_id,string $user_name): bool
+    public function createOpinion(string $text, int $question_id, int $user_id, string $user_name): bool
     {
         $stmt = $this->connection->prepare("INSERT into opinion(text,question_id,user_id,user_name,created_at) values (:text,:question_id,:user_id,:user_name,:created_at)");
         $date = date('Y-m-d H:i:s');

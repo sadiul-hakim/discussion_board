@@ -11,6 +11,12 @@ $question_service = new QuestionService();
 $opinion_service = new OpinionService();
 
 session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('Location: /discussion_board/login.php');
+    exit;
+}
+
 $user_id = $_SESSION['user']['id'];
 
 if (isset($_POST) && isset($_POST['ask_question'])) {

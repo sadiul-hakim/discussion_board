@@ -31,7 +31,7 @@ class CategoryService
         return $stmt->fetchAll();
     }
 
-        public function findCategoryByTitle($title): array
+    public function findCategoryByTitle($title): array
     {
         $stmt = $this->connection->prepare(
             "SELECT * from category where title = :title"

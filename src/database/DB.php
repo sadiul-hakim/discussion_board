@@ -5,10 +5,12 @@ namespace App\Database;
 use PDO;
 use PDOException;
 
-class DB{
+class DB
+{
     private static ?PDO $connection = null;
 
-    public static function getConnection(): PDO {
+    public static function getConnection(): PDO
+    {
 
         if (self::$connection === null) {
             $host = "localhost:3307";

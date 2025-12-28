@@ -22,6 +22,12 @@ $categories = $category_service->findAll();
 <body>
     <?php
     session_start();
+
+    if (!isset($_SESSION['user'])) {
+        header('Location: /discussion_board/login.php');
+        exit;
+    }
+
     require_once('./component/navbar.php'); ?>
 
     <div class="container">

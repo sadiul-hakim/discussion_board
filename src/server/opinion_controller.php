@@ -6,6 +6,11 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 session_start();
 
+if (!isset($_SESSION['user'])) {
+    header('Location: /discussion_board/login.php');
+    exit;
+}
+
 use App\Database\OpinionService;
 
 $user_id = $_SESSION['user']['id'];
