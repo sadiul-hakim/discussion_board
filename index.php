@@ -49,7 +49,7 @@
                 <?php foreach ($categories as $category) { ?>
 
                     <div class="shadow my-1 p-2">
-                        <a href="" class="text-primary lead text-decoration-none">
+                        <a href="./questions_per_category.php?category=<?php echo $category['title'];?>" class="text-primary lead text-decoration-none">
                             <?php echo $category['title']; ?>
                         </a>
                     </div>

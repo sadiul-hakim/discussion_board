@@ -39,6 +39,15 @@ class QuestionService
         return $stmt->fetchAll();
     }
 
+    public function findAllByCategory(string $category): array
+    {
+        $stmt = $this->connection->prepare("SELECT * from question where category = :category");
+        $stmt->execute([
+            ':category' => $category
+        ]);
+        return $stmt->fetchAll();
+    }
+
     public function findById(int $id): array
     {
         $stmt = $this->connection->prepare("SELECT * from question where id = :id");
