@@ -13,10 +13,10 @@ class DB
     {
 
         if (self::$connection === null) {
-            $host = "localhost:3307";
-            $db = "discussion_board";
-            $user = "root";
-            $pass = "hakim@123";
+            $host = "localhost";
+            $db = "sadiulh1_discussion_board";
+            $user = "sadiulh1_admin";
+            $pass = "admin@2026!";
             $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
             try {

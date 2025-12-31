@@ -1,3 +1,21 @@
+<?php session_start();
+    require __DIR__ . '/vendor/autoload.php';
+
+    
+    use App\Database\QuestionService;
+    use App\Database\CategoryService;
+
+    $question_service = new QuestionService();
+    $category_service = new CategoryService();
+?>
+
+<?php 
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +28,6 @@
 
 <body>
     <?php
-    require __DIR__ . '/vendor/autoload.php';
-    session_start();
-    use App\Database\QuestionService;
-    use App\Database\CategoryService;
-
-    $question_service = new QuestionService();
-    $category_service = new CategoryService();
     
     $questions = $question_service->findAllOrderByDate();
     $categories = $category_service -> findAll();

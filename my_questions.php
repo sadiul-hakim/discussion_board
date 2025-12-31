@@ -1,3 +1,14 @@
+<?php session_start();
+    require __DIR__ . '/vendor/autoload.php';
+
+    if (!isset($_SESSION['user'])) {
+        header('Location: /discussion_board/login.php');
+    }
+
+    use App\Database\QuestionService;
+
+    $question_service = new QuestionService();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,17 +21,6 @@
 
 <body>
     <?php
-
-    session_start();
-    if (!isset($_SESSION['user'])) {
-        header('Location: /discussion_board/login.php');
-    }
-
-    require __DIR__ . '/vendor/autoload.php';
-
-    use App\Database\QuestionService;
-
-    $question_service = new QuestionService();
 
     $user_id = $_SESSION['user']['id'];
     $questions = $question_service->findAllByUser($user_id);

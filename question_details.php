@@ -1,3 +1,17 @@
+<?php session_start();
+    require __DIR__ . '/vendor/autoload.php';
+
+    if (!isset($_GET['qId'])) {
+        header('Location: /discussion_board');
+        exit;
+    }
+
+    use App\Database\QuestionService;
+    use App\Database\OpinionService;
+
+    $question_service = new QuestionService();
+    $opinion_service = new OpinionService();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +24,8 @@
 
 <body>
     <?php
-    require __DIR__ . '/vendor/autoload.php';
-    session_start();
 
-    if (!isset($_GET['qId'])) {
-        header('Location: /discussion_board');
-        exit;
-    }
     $user_id = isset($_SESSION['user']) ? $_SESSION['user']['id'] : 0;
-
-    use App\Database\QuestionService;
-    use App\Database\OpinionService;
-
-    $question_service = new QuestionService();
-    $opinion_service = new OpinionService();
     $question = $question_service->findById($_GET['qId']);
     $opinions = $opinion_service->findAllByQuestion($question['id']);
 

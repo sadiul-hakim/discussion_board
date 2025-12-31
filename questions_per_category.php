@@ -1,3 +1,15 @@
+<?php session_start();
+    require __DIR__ . '/vendor/autoload.php';
+
+    if (!isset($_GET['category'])) {
+        header('Location: /discussion_board');
+        exit;
+    }
+
+    use App\Database\QuestionService;
+
+    $question_service = new QuestionService();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,17 +22,6 @@
 
 <body>
     <?php
-    require __DIR__ . '/vendor/autoload.php';
-    session_start();
-
-    if (!isset($_GET['category'])) {
-        header('Location: /discussion_board');
-        exit;
-    }
-
-    use App\Database\QuestionService;
-
-    $question_service = new QuestionService();
 
     $questions = $question_service->findAllByCategory($_GET['category']);
     require_once('./component/navbar.php');

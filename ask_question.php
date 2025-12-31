@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require __DIR__ . '/vendor/autoload.php';
 
 use App\Database\CategoryService;
@@ -21,7 +22,6 @@ $categories = $category_service->findAll();
 
 <body>
     <?php
-    session_start();
 
     if (!isset($_SESSION['user'])) {
         header('Location: /discussion_board/login.php');
