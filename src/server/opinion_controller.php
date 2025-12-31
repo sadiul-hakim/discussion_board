@@ -7,7 +7,7 @@ require __DIR__ . '/../../vendor/autoload.php';
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: /discussion_board/login.php');
+    header('Location: /~sadiulh1/login.php');
     exit;
 }
 
@@ -24,7 +24,7 @@ if (isset($_POST['write_opinion'])) {
     $question_id = $_POST['question_id'];
 
     $saved = $opinion_service->createOpinion($text, $question_id, $user_id, $user_name);
-    header('Location: /discussion_board/question_details.php?qId=' . $question_id);
+    header('Location: /~sadiulh1/question_details.php?qId=' . $question_id);
     exit;
 }
 
@@ -34,16 +34,16 @@ if (isset($_GET['delete_opinion'])) {
     $opinion = $opinion_service->findById($opinion_id);
 
     if ($opinion['user_id'] != $user_id) {
-        header("Location: /discussion_board/question_details.php?qId=$qid&ftdo=true");
+        header("Location: /~sadiulh1/question_details.php?qId=$qid&ftdo=true");
         exit;
     }
 
     $deleted = $opinion_service->deleteById($opinion_id);
     if ($deleted) {
-        header("Location: /discussion_board/question_details.php?qId=$qid&sdo=true");
+        header("Location: /~sadiulh1/question_details.php?qId=$qid&sdo=true");
         exit;
     } else {
-        header("Location: /discussion_board/question_details.php?qId=$qid&ftdo=true");
+        header("Location: /~sadiulh1/question_details.php?qId=$qid&ftdo=true");
         exit;
     }
 }

@@ -24,7 +24,7 @@ $categories = $category_service->findAll();
     <?php
 
     if (!isset($_SESSION['user'])) {
-        header('Location: /discussion_board/login.php');
+        header('Location: /~sadiulh1/login.php');
         exit;
     }
 

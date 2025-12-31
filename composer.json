@@ -1,5 +1,5 @@
 {
-    "name": "sadiulhakim/discussion_board",
+    "name": "sadiulhakim/~sadiulh1",
     "autoload": {
         "psr-4": {
             "App\\": "src/"

@@ -1,5 +1,5 @@
 <?php
 session_start();
 session_destroy();
-header('Location: /discussion_board/login.php');
+header('Location: /~sadiulh1/login.php');
 exit;

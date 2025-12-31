@@ -2,7 +2,7 @@
     require __DIR__ . '/vendor/autoload.php';
 
     if (!isset($_GET['category'])) {
-        header('Location: /discussion_board');
+        header('Location: /~sadiulh1');
         exit;
     }
 

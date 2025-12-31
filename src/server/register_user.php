@@ -17,10 +17,10 @@ if (isset($_POST) && isset($_POST['register_user'])) {
 
     $saved = $user_service->registerUser($name, $email, $password);
     if ($saved) {
-        header("Location: /discussion_board/login.php?registerSuccessful=true");
+        header("Location: /~sadiulh1/login.php?registerSuccessful=true");
         exit;
     } else{
-         header("Location: /discussion_board/register.php?error=true");
+         header("Location: /~sadiulh1/register.php?error=true");
         exit;
     }
 }

@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION['user'])) {
-    header("Location: /discussion_board");
+    header("Location: /~sadiulh1");
     exit;
 }
 

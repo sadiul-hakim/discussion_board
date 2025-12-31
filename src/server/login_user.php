@@ -18,10 +18,10 @@ if (isset($_POST) && isset($_POST['login_user'])) {
     $user = $user_service->findUser($email);
     if ($user && $user['password'] === $password) {
         $_SESSION['user'] = ['username' => $user['name'], 'email' => $user['email'], 'id' => $user['id']];
-        header("Location: /discussion_board");
+        header("Location: /~sadiulh1");
         exit;
     } else {
-        header("Location: /discussion_board/login.php?error=true");
+        header("Location: /~sadiulh1/login.php?error=true");
         exit;
     }
 }

@@ -13,7 +13,7 @@ $opinion_service = new OpinionService();
 session_start();
 
 if (!isset($_SESSION['user'])) {
-    header('Location: /discussion_board/login.php');
+    header('Location: /~sadiulh1/login.php');
     exit;
 }
 
@@ -27,10 +27,10 @@ if (isset($_POST) && isset($_POST['ask_question'])) {
     $saved = $question_service->createQuestion($title, $description, $category, $user_id);
 
     if ($saved) {
-        header('Location: /discussion_board?question_added=true');
+        header('Location: /~sadiulh1?question_added=true');
         exit;
     } else {
-        header('Location: /discussion_board/ask_question.php?error=true');
+        header('Location: /~sadiulh1/ask_question.php?error=true');
         exit;
     }
 }
@@ -39,7 +39,7 @@ if (isset($_GET['delete_question']) && $_GET['delete_question'] == true) {
     $qId = $_GET['qId'];
     $question = $question_service->findById($qId);
     if ($question['user_id'] != $user_id) {
-        header('Location: /discussion_board/my_questions.php?error=true');
+        header('Location: /~sadiulh1/my_questions.php?error=true');
         exit;
     }
 
@@ -47,7 +47,7 @@ if (isset($_GET['delete_question']) && $_GET['delete_question'] == true) {
     $deleted = $question_service->deleteById($qId);
 
     if ($deleted) {
-        header('Location: /discussion_board/my_questions.php?success=true');
+        header('Location: /~sadiulh1/my_questions.php?success=true');
         exit;
     }
 }

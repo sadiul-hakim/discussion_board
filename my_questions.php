@@ -2,7 +2,7 @@
     require __DIR__ . '/vendor/autoload.php';
 
     if (!isset($_SESSION['user'])) {
-        header('Location: /discussion_board/login.php');
+        header('Location: /~sadiulh1/login.php');
     }
 
     use App\Database\QuestionService;
