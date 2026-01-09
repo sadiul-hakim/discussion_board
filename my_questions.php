@@ -3,6 +3,7 @@
 
     if (!isset($_SESSION['user'])) {
         header('Location: /~sadiulh1/login.php');
+        exit;
     }
 
     use App\Database\QuestionService;

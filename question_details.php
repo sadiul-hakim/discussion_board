@@ -39,7 +39,7 @@
                 <?php
                 if (isset($_GET['sdo']) && $_GET['sdo'] == true) { ?>
                     <div class='alert alert-success my-2 p-3 text-center'>
-                        Successfully deleted the opiion.
+                        Successfully deleted the opinion.
                     </div>
                 <?php } ?>
 
